@@ -1,1 +1,234 @@
-Davies
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAVIES Quality Bags</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f4f4}
+header{background:#111;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;text-decoration:none;margin-left:20px}
+.hero{background:#000;color:#fff;text-align:center;padding:80px 20px}
+.hero h1{font-size:45px}
+.hero p{margin-top:15px;font-size:18px}
+.container{max-width:350px;margin:30px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px #999}
+input{width:100%;padding:12px;margin:10px 0}
+button{width:100%;padding:12px;background:#d4af37;border:none;font-size:16px;cursor:pointer}
+button:hover{background:gold}
+.page{display:none}
+.about{padding:40px;text-align:center;line-height:1.8}
+footer{background:#111;color:#fff;text-align:center;padding:30px;margin-top:40px}
+footer a{color:gold;text-decoration:none}
+</style>
+
+</head>
+
+<body>
+
+<div id="loginPage">
+
+<header>
+<h2>DAVIES Quality Bags</h2>
+</header>
+
+<section class="hero">
+<h1>Luxury Bags For Every Occasion</h1>
+<p>Quality • Elegance • Affordable Prices</p>
+</section>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<input id="name" placeholder="Full Name">
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="register()">Register</button>
+
+<br><br>
+
+<h2>Login</h2>
+
+<input id="loginEmail" placeholder="Email">
+<input id="loginPassword" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+</div>
+
+<!-- HOME -->
+
+<div id="homePage" class="page">
+
+<header>
+
+<h2>DAVIES Quality Bags</h2>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="#" onclick="logout()">Logout</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1 id="welcome"></h1>
+
+<p>Welcome to DAVIES Quality Bags.</p>
+
+</section>
+
+<section class="about">
+
+<h2>About DAVIES</h2>
+
+<br>
+
+<p>
+
+DAVIES Quality Bags is your trusted destination for premium handbags,
+travel bags, backpacks, office bags and fashion accessories.
+
+Our mission is to provide durable, stylish and affordable bags for everyone.
+
+</p>
+
+<br>
+
+<h3>Why Shop With Us?</h3>
+
+<p>
+
+✔ Premium Quality Products<br>
+
+✔ Affordable Prices<br>
+
+✔ Fast Delivery<br>
+
+✔ Excellent Customer Service
+
+</p>
+
+<br>
+
+<a href="products.html">
+
+<button style="width:220px;">View Products</button>
+
+</a>
+
+</section>
+
+<footer>
+
+<h2>Contact Us</h2>
+
+<br>
+
+<p>📞 Phone / WhatsApp</p>
+
+<p><strong>09013051764</strong></p>
+
+<br>
+
+<p>Instagram</p>
+
+<p>@thedavieseffect</p>
+
+<br>
+
+<p>TikTok</p>
+
+<p>@thedavieseffect</p>
+
+<br>
+
+<p>
+
+<a href="https://wa.me/2349013051764" target="_blank">
+
+Chat on WhatsApp
+
+</a>
+
+</p>
+
+<br>
+
+<p>© 2026 DAVIES Quality Bags</p>
+
+</footer>
+
+</div>
+
+<script>
+
+function register(){
+
+let user={
+
+name:name.value,
+
+email:email.value,
+
+password:password.value
+
+};
+
+localStorage.setItem("daviesUser",JSON.stringify(user));
+
+alert("Registration Successful!");
+
+}
+
+function login(){
+
+let user=JSON.parse(localStorage.getItem("daviesUser"));
+
+if(user==null){
+
+alert("Register First");
+
+return;
+
+}
+
+if(loginEmail.value==user.email && loginPassword.value==user.password){
+
+loginPage.style.display="none";
+
+homePage.style.display="block";
+
+welcome.innerHTML="Welcome, "+user.name+" 👋";
+
+}
+
+else{
+
+alert("Wrong Email or Password");
+
+}
+
+}
+
+function logout(){
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
